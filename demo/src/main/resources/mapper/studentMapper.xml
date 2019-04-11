@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.StudentMapper">
+    <select id="findStudentInfo" resultType="com.example.demo.entity.Student">
+        select id,name,classNumber  from  t_student
+    </select>
+    <insert id="addStudentInfo" parameterType="com.example.demo.entity.Student">
+        insert into t_student (id, name)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+    </insert>
+    <delete id="delStudentInfo" parameterType="java.lang.Integer">
+        delete from t_dtudent where id = #{id,jdbcType=INTEGER}
+    </delete>
+</mapper>
